@@ -1,12 +1,15 @@
 package com.example.moviemobileapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviemobileapp.models.Popular
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviemobileapp.databinding.ActivityMainBinding
+import com.example.moviemobileapp.models.Result
 import com.google.gson.Gson
+import kotlinx.coroutines.runBlocking
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
@@ -48,7 +51,15 @@ class MainActivity : AppCompatActivity() {
             kotlin.run {
                 recyclerView.apply {
                     layoutManager = LinearLayoutManager(this@MainActivity)
-                    adapter = MovieCardAdapter(request.results)
+                    adapter = MovieCardAdapter(request.results, object:MovieDetailsInterface{
+                        override fun onClick(data: Result) {
+                            runBlocking {
+                                val intent = Intent(this@MainActivity, MovieDetails::class.java)
+                                intent.putExtra("data", data)
+                                startActivity(intent)
+                            }
+                        }
+                    })
                 }            }
         }
 
