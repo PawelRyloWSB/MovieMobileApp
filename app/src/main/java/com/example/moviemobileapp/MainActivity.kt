@@ -3,6 +3,8 @@ package com.example.moviemobileapp
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moviemobileapp.models.Popular
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.moviemobileapp.databinding.ActivityMainBinding
 import com.google.gson.Gson
 import java.io.InputStreamReader
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
                 val inputStreamReader = InputStreamReader(inputSystem, "UTF-8")
                 val request = Gson().fromJson(inputStreamReader, Popular::class.java)
                 updateUi(request)
+
                 inputStreamReader.close()
                 inputSystem.close()
             }
@@ -39,10 +42,14 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun updateUi(request: Popular) {
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view)
+
         runOnUiThread {
             kotlin.run {
-                binding.textHome.text = request.total_pages.toString()
-            }
+                recyclerView.apply {
+                    layoutManager = LinearLayoutManager(this@MainActivity)
+                    adapter = MovieCardAdapter(request.results)
+                }            }
         }
 
     }
