@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MovieMobileApp</string>
+    <string name="originalLanguage">Orginal language: %1$S</string>
+    <string name="orginalTitle">Title: %1$s</string>
+    <string name="overview">Overview:\n%1$s</string>
+    <string name="vote_average">Vote average: %1$.1f</string>
+    <string name="release_date">Release date: %1$s</string>
 </resources>

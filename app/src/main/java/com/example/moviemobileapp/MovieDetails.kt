@@ -17,7 +17,10 @@ class MovieDetails : AppCompatActivity() {
         val data = intent.getSerializableExtra("data") as com.example.moviemobileapp.models.Result
 
         println(data.title)
-        binding.movieTitle.setText(data.title)
-        binding.overview.setText(data.overview)
+        binding.movieTitle.text = getString(R.string.orginalTitle, data.title)
+        binding.overview.text = getString(R.string.overview, data.overview)
+        binding.originalLanguage.text = getString(R.string.originalLanguage, data.original_language)
+        binding.voteAverage.text = getString(R.string.vote_average, data.vote_average)
+        binding.releaseDate.text = getString(R.string.release_date, data.release_date)
     }
 }
