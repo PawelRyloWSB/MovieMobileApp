@@ -16,8 +16,9 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="259dp"
+        android:layout_width="242dp"
         android:layout_height="match_parent"
+        android:paddingRight="20px"
         android:textAlignment="center"
         android:textSize="10pt"
         android:textStyle="bold|italic" />
