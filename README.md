@@ -1,7 +1,7 @@
 # MovieMobileApp
 ## Nasza aplikacja to baza danych dostępna dla każdego użytkownika chcącego poznać kilka podstawowych informacji na temat pożądanego filmu.
 
-Po otworzeniu, wyświetli się nam pula dostępnych filmów. Klikając na wybrany przez nas film otrzymamy:
+Po otworzeniu, wyświetli się nam pula dostępnych filmów. Klikając na wybrany przez nas film, otrzymamy:
 
 1. Tytuł filmu
 2. Oryginalny język
